@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A101 Business Consultant — Global Business, Logistics & Finance Advisory</title>
+<meta name="description" content="A101 Business Consultant helps organizations expand, move goods, and build AI capability across borders — AI training, travel, logistics, fleet, project management and finance advisory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1C30;
+    --navy-2:#132A47;
+    --gold:#D8A72E;
+    --gold-dim:#a4801f;
+    --paper:#F6F4EE;
+    --ink:#1B2430;
+    --ink-soft:#4B5563;
+    --line:#DCD7C9;
+    --wa:#25D366;
+    --max:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--navy);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:0.95rem;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn-gold{background:var(--gold); color:var(--navy);}
+  .btn-gold:hover{background:#c99a25; transform:translateY(-1px);}
+  .btn-outline{border-color:rgba(246,244,238,0.4); color:var(--paper);}
+  .btn-outline:hover{border-color:var(--paper); background:rgba(246,244,238,0.08);}
+  .btn-outline-dark{border-color:var(--navy); color:var(--navy);}
+  .btn-outline-dark:hover{background:var(--navy); color:var(--paper);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(11,28,48,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:12px;
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--paper);
+    font-weight:700; font-size:1.15rem;
+    white-space:nowrap;
+  }
+  .logo-mark{
+    width:38px; height:38px; border-radius:50%;
+    background:conic-gradient(from 220deg, var(--gold), #7fb2c9, var(--navy-2), var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.8rem; color:var(--navy); font-weight:700;
+    flex-shrink:0;
+  }
+  .logo small{display:block; font-family:'Inter'; font-weight:500; font-size:0.6rem; letter-spacing:.14em; color:var(--gold);}
+  nav.links{display:flex; gap:32px;}
+  nav.links a{
+    color:rgba(246,244,238,0.82); font-size:0.92rem; font-weight:500;
+    position:relative; padding:6px 0;
+  }
+  nav.links a:hover{color:var(--paper);}
+  .nav-right{display:flex; align-items:center; gap:16px;}
+  .icon-btn{
+    width:44px; height:44px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--wa); color:#fff; flex-shrink:0;
+    box-shadow:0 4px 14px rgba(37,211,102,0.45);
+    transition:transform .18s ease;
+  }
+  .icon-btn:hover{transform:scale(1.07);}
+  .icon-btn svg{width:22px; height:22px;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px;}
+  .burger span{width:24px; height:2px; background:var(--paper); display:block;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(ellipse at 75% 20%, #1b3a5c 0%, var(--navy) 55%), var(--navy);
+    color:var(--paper);
+    padding:168px 0 110px;
+    overflow:hidden;
+  }
+  .hero-net{
+    position:absolute; inset:0; opacity:0.35; pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center; position:relative; z-index:2;
+  }
+  .eyebrow{
+    color:var(--gold); font-weight:600; font-size:0.85rem;
+    margin-bottom:18px; letter-spacing:0.02em;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.6vw, 3.6rem);
+    color:var(--paper);
+    line-height:1.06;
+    max-width:15ch;
+  }
+  .hero h1 em{font-style:normal; color:var(--gold);}
+  .hero p.lede{
+    margin-top:22px; font-size:1.08rem; color:rgba(246,244,238,0.78);
+    max-width:52ch;
+  }
+  .hero-ctas{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+  .hero-meta{
+    margin-top:56px; display:flex; gap:34px; flex-wrap:wrap;
+    border-top:1px solid rgba(246,244,238,0.16); padding-top:26px;
+  }
+  .hero-meta div small{display:block; color:rgba(246,244,238,0.55); font-size:0.78rem;}
+  .hero-meta div strong{font-family:'Space Grotesk'; font-size:1rem; color:var(--paper);}
+  .globe-wrap{position:relative; display:flex; justify-content:center;}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:104px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head .eyebrow{color:var(--gold-dim);}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.4rem);}
+  .section-head p{margin-top:14px; color:var(--ink-soft); font-size:1.02rem; max-width:56ch;}
+  .light-on-dark .section-head h2{color:var(--paper);}
+  .light-on-dark .section-head p{color:rgba(246,244,238,0.72);}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--paper);}
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+  .about-figure{
+    background:var(--navy); color:var(--paper); padding:34px;
+    position:relative; overflow:hidden;
+  }
+  .about-figure h3{color:var(--gold); font-size:1rem; margin-bottom:10px;}
+  .about-figure p{color:rgba(246,244,238,0.75); font-size:0.95rem;}
+  .about-copy p{margin-bottom:18px; color:var(--ink-soft);}
+  .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px;}
+  .pillar{border-top:2px solid var(--gold); padding-top:14px;}
+  .pillar h4{font-size:0.98rem; margin-bottom:6px;}
+  .pillar p{font-size:0.88rem; color:var(--ink-soft);}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--navy); color:var(--paper);}
+  .service-row{
+    display:grid; grid-template-columns:70px 1fr 1fr; gap:36px;
+    padding:34px 0; border-top:1px solid rgba(246,244,238,0.14);
+    align-items:start;
+  }
+  .service-row:last-child{border-bottom:1px solid rgba(246,244,238,0.14);}
+  .service-icon{
+    width:52px; height:52px; border:1.5px solid var(--gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--gold); flex-shrink:0;
+  }
+  .service-icon svg{width:24px; height:24px;}
+  .service-row h3{color:var(--paper); font-size:1.2rem; margin-bottom:6px;}
+  .service-row .tag{color:var(--gold); font-size:0.78rem; font-weight:600; letter-spacing:0.04em; display:block; margin-bottom:8px;}
+  .service-row p{color:rgba(246,244,238,0.72); font-size:0.95rem;}
+  .service-row ul{margin-top:12px; padding-left:18px; color:rgba(246,244,238,0.72); font-size:0.92rem;}
+  .service-row li{margin-bottom:6px;}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--paper);}
+  .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  .process-step{border-left:2px solid var(--navy); padding-left:18px;}
+  .process-step .num{font-family:'Space Grotesk'; font-weight:700; color:var(--gold-dim); font-size:0.95rem; display:block; margin-bottom:10px;}
+  .process-step h4{font-size:1.02rem; margin-bottom:8px;}
+  .process-step p{font-size:0.9rem; color:var(--ink-soft);}
+
+  /* ---------- REACH ---------- */
+  .reach{background:#EFEAD9;}
+  .reach-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .reach-list{display:grid; grid-template-columns:1fr 1fr; gap:16px 32px; margin-top:26px;}
+  .reach-list div{border-top:1px solid var(--line); padding-top:10px; font-size:0.95rem; color:var(--ink-soft);}
+  .reach-list strong{display:block; color:var(--navy); font-family:'Space Grotesk'; font-size:1.5rem;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--navy); color:var(--paper);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
+  .contact-list{margin-top:26px; display:flex; flex-direction:column; gap:20px;}
+  .contact-item{display:flex; gap:16px; align-items:flex-start; border-top:1px solid rgba(246,244,238,0.14); padding-top:18px;}
+  .contact-item svg{width:22px; height:22px; color:var(--gold); flex-shrink:0; margin-top:2px;}
+  .contact-item strong{display:block; color:var(--paper); font-size:0.95rem;}
+  .contact-item span{color:rgba(246,244,238,0.68); font-size:0.92rem;}
+  .contact-form{background:var(--paper); padding:34px; color:var(--ink);}
+  .contact-form h3{margin-bottom:6px;}
+  .contact-form p.small{color:var(--ink-soft); font-size:0.88rem; margin-bottom:22px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:0.8rem; font-weight:600; margin-bottom:6px; color:var(--navy);}
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; border:1.5px solid var(--line); background:#fff;
+    font-family:'Inter'; font-size:0.92rem; color:var(--ink);
+  }
+  .field textarea{resize:vertical; min-height:90px;}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--navy); outline-offset:1px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#081422; color:rgba(246,244,238,0.62); padding:44px 0 26px;}
+  .footer-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; padding-bottom:26px; border-bottom:1px solid rgba(246,244,238,0.1);}
+  .footer-cols{display:flex; gap:56px; flex-wrap:wrap;}
+  .footer-cols h5{color:var(--paper); font-size:0.85rem; margin-bottom:12px;}
+  .footer-cols a{display:block; font-size:0.86rem; margin-bottom:8px; color:rgba(246,244,238,0.6);}
+  .footer-cols a:hover{color:var(--gold);}
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:20px; font-size:0.8rem; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- WHATSAPP FLOAT (page corner, in addition to header icon) ---------- */
+  .wa-float{
+    position:fixed; right:24px; bottom:24px; z-index:120;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--wa); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 22px rgba(37,211,102,0.5);
+    animation:pulse 2.6s infinite;
+  }
+  .wa-float svg{width:28px; height:28px; color:#fff;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.55);}
+    70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
+
+  @media (max-width:920px){
+    nav.links{position:fixed; top:74px; left:0; right:0; background:var(--navy); flex-direction:column; padding:20px 28px; gap:18px; display:none; border-bottom:1px solid rgba(255,255,255,0.1);}
+    nav.links.open{display:flex;}
+    .burger{display:flex;}
+    .hero-grid, .about-grid, .reach-grid, .contact-grid{grid-template-columns:1fr;}
+    .service-row{grid-template-columns:50px 1fr; }
+    .service-row > div:nth-child(3){grid-column:2 / 3;}
+    .pillars, .process-grid{grid-template-columns:1fr 1fr;}
+    .reach-list{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .pillars, .process-grid, .reach-list{grid-template-columns:1fr;}
+    .hero{padding:150px 0 80px;}
+    section{padding:76px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <span class="logo-mark">A1</span>
+      <span>A101 Business Consultant<small>GLOBAL ADVISORY &amp; OPERATIONS</small></span>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">How We Work</a>
+      <a href="#reach">Global Reach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-btn" href="https://wa.me/2347012731130?text=Hello%20A101%20Business%20Consultant%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.4 3.98 15.06c0 2.24.61 4.42 1.77 6.33L3 29l7.79-2.7a12.1 12.1 0 0 0 5.25 1.2h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.78 22.71 3 16.04 3zm0 21.9h-.01a10.1 10.1 0 0 1-5.15-1.41l-.37-.22-4.62 1.6 1.54-4.5-.24-.38a10.06 10.06 0 0 1-1.55-5.36c0-5.58 4.55-10.13 10.14-10.13 5.58 0 10.13 4.55 10.13 10.13 0 5.59-4.55 10.27-10.13 10.27zm5.55-7.57c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.65-.94-2.26-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35z"/></svg>
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <svg class="hero-net" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="dotfade" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stop-color="#D8A72E" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#D8A72E" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <g stroke="#3a5a80" stroke-width="1">
+      <line x1="700" y1="120" x2="920" y2="220"/>
+      <line x1="920" y1="220" x2="1080" y2="150"/>
+      <line x1="920" y1="220" x2="980" y2="380"/>
+      <line x1="700" y1="120" x2="760" y2="330"/>
+      <line x1="760" y1="330" x2="980" y2="380"/>
+      <line x1="760" y1="330" x2="640" y2="480"/>
+      <line x1="980" y1="380" x2="1120" y2="470"/>
+      <line x1="640" y1="480" x2="820" y2="590"/>
+      <line x1="820" y1="590" x2="1050" y2="600"/>
+    </g>
+    <g fill="#D8A72E">
+      <circle cx="700" cy="120" r="4"/>
+      <circle cx="920" cy="220" r="5"/>
+      <circle cx="1080" cy="150" r="3"/>
+      <circle cx="980" cy="380" r="4"/>
+      <circle cx="760" cy="330" r="6"/>
+      <circle cx="640" cy="480" r="4"/>
+      <circle cx="1120" cy="470" r="3"/>
+      <circle cx="820" cy="590" r="4"/>
+      <circle cx="1050" cy="600" r="3"/>
+    </g>
+    <circle cx="850" cy="360" r="260" fill="url(#dotfade)" opacity="0.15"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">MULTINATIONAL BUSINESS &amp; OPERATIONS CONSULTANCY</span>
+      <h1>We move your business across borders, systems <em>and industries</em>.</h1>
+      <p class="lede">A101 Business Consultant brings together AI capability building, travel and logistics operations, fleet and project management, and international finance advisory — one partner for the moving parts of a growing organization.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#contact">Book a consultation</a>
+        <a class="btn btn-outline" href="https://wa.me/2347012731130?text=Hello%20A101%20Business%20Consultant%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>7 service lines</strong><small>Under one consultancy</small></div>
+        <div><strong>AI &amp; Operations</strong><small>Training through to execution</small></div>
+        <div><strong>Global markets</strong><small>Logistics, travel &amp; finance</small></div>
+      </div>
+    </div>
+    <div class="globe-wrap">
+      <svg width="100%" viewBox="0 0 360 360" role="img" aria-label="Global network illustration">
+        <circle cx="180" cy="180" r="150" fill="none" stroke="rgba(246,244,238,0.18)" stroke-width="1"/>
+        <circle cx="180" cy="180" r="150" fill="none" stroke="rgba(246,244,238,0.1)" stroke-width="30"/>
+        <ellipse cx="180" cy="180" rx="150" ry="55" fill="none" stroke="rgba(246,244,238,0.22)"/>
+        <ellipse cx="180" cy="180" rx="150" ry="95" fill="none" stroke="rgba(246,244,238,0.16)"/>
+        <line x1="30" y1="180" x2="330" y2="180" stroke="rgba(246,244,238,0.22)"/>
+        <line x1="180" y1="30" x2="180" y2="330" stroke="rgba(246,244,238,0.14)"/>
+        <g fill="#D8A72E">
+          <circle cx="120" cy="120" r="4.5"/>
+          <circle cx="250" cy="105" r="3.5"/>
+          <circle cx="270" cy="220" r="4.5"/>
+          <circle cx="110" cy="250" r="3.5"/>
+          <circle cx="180" cy="180" r="5.5"/>
+        </g>
+        <g stroke="#D8A72E" stroke-width="1" opacity="0.7">
+          <line x1="180" y1="180" x2="120" y2="120"/>
+          <line x1="180" y1="180" x2="250" y2="105"/>
+          <line x1="180" y1="180" x2="270" y2="220"/>
+          <line x1="180" y1="180" x2="110" y2="250"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-figure">
+      <h3>Who we are</h3>
+      <p>A101 Business Consultant is a multinational business consultancy built around one idea: growing organizations need fewer vendors and more coordinated partners. We combine advisory, operations and hands-on delivery so clients aren't stitching together separate providers for training, logistics and financial strategy.</p>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow" style="color:#a4801f;">ABOUT A101</span>
+      <h2 style="margin-top:8px;">Elevate your business. Drive innovation. Reach global markets.</h2>
+      <p>That line is our operating brief, not a slogan. Every engagement — whether it's a two-day AI training workshop or a multi-country logistics contract — is scoped to move a specific part of your business forward, with a named point of contact and a clear deliverable.</p>
+      <p>We work with founders, operations leads and finance teams who need international-grade execution without building an internal department for every function first.</p>
+      <div class="pillars">
+        <div class="pillar"><h4>Coordinated delivery</h4><p>One consultancy across advisory, logistics and technology, so handoffs don't get lost.</p></div>
+        <div class="pillar"><h4>Practical over theoretical</h4><p>Deliverables are built to be used — training decks, operating fleets, live shipments, filed plans.</p></div>
+        <div class="pillar"><h4>Global, locally run</h4><p>International finance and market knowledge, applied by a team that manages the on-the-ground detail.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head light-on-dark">
+      <span class="eyebrow">OUR PREMIUM SERVICES</span>
+      <h2>Seven service lines. One consultancy driving global success.</h2>
+      <p>Each service below can be engaged independently or as part of a wider program — many clients start with one and expand into others as their operations grow.</p>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4-8 4-8-4 8-4z"/><path d="M4 11l8 4 8-4"/><path d="M4 15l8 4 8-4"/></svg></div>
+      <div>
+        <span class="tag">01 — CAPABILITY BUILDING</span>
+        <h3>AI Agent Teaching Classes</h3>
+      </div>
+      <div>
+        <p>Practical, hands-on training on building and deploying AI agents — designed for teams who need working capability, not just theory.</p>
+        <ul>
+          <li>Cohort-based and one-on-one training tracks</li>
+          <li>Building, testing and deploying task-specific AI agents</li>
+          <li>Guidance on tools, workflows and responsible use in a business setting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l20-6-7 14-2-7-7-1z"/></svg></div>
+      <div>
+        <span class="tag">02 — TRAVEL</span>
+        <h3>Travel Consultant</h3>
+      </div>
+      <div>
+        <p>Global travel planning and corporate travel management for teams that move across regions regularly.</p>
+        <ul>
+          <li>Itinerary planning and booking coordination</li>
+          <li>Corporate travel policy and cost management</li>
+          <li>Visa, documentation and travel-risk guidance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg></div>
+      <div>
+        <span class="tag">03 — LOGISTICS</span>
+        <h3>Logistics &amp; Cargo Delivery</h3>
+      </div>
+      <div>
+        <p>Reliable global logistics and efficient shipping, from first-mile pickup to final delivery.</p>
+        <ul>
+          <li>Freight coordination across road, air and sea</li>
+          <li>Customs documentation and clearance support</li>
+          <li>Warehousing and last-mile delivery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+      <div>
+        <span class="tag">04 — OPERATIONS</span>
+        <h3>Fleet Management</h3>
+      </div>
+      <div>
+        <p>Optimized commercial vehicle operations for businesses running their own transport.</p>
+        <ul>
+          <li>Vehicle tracking and utilization reviews</li>
+          <li>Maintenance scheduling to reduce downtime</li>
+          <li>Driver management and route planning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10l9-6 9 6-9 6-9-6z"/><path d="M7 12.5V17c0 1.2 2.2 3 5 3s5-1.8 5-3v-4.5"/></svg></div>
+      <div>
+        <span class="tag">05 — MOBILITY</span>
+        <h3>Vehicle Hire</h3>
+      </div>
+      <div>
+        <p>Diverse vehicle rental solutions for short-term needs, projects and corporate accounts.</p>
+        <ul>
+          <li>Short and long-term rental terms</li>
+          <li>Corporate leasing arrangements</li>
+          <li>A range of vehicle classes for different jobs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div>
+      <div>
+        <span class="tag">06 — DELIVERY</span>
+        <h3>Project Management</h3>
+      </div>
+      <div>
+        <p>Expert planning and execution for projects that need structure, not just a checklist.</p>
+        <ul>
+          <li>Scoping, scheduling and milestone tracking</li>
+          <li>Stakeholder coordination and reporting</li>
+          <li>Risk and budget management through delivery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5s-5 1.6-5 3.5S9.2 10 12 10s5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div>
+      <div>
+        <span class="tag">07 — ADVISORY</span>
+        <h3>Business Development &amp; International Finance Consultancy</h3>
+      </div>
+      <div>
+        <p>Strategic business growth and global financial advisory for organizations entering new markets.</p>
+        <ul>
+          <li>Growth strategy and market-entry planning</li>
+          <li>International finance and funding structure advisory</li>
+          <li>Partnership and business development support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">HOW WE WORK</span>
+      <h2>Four steps, from first conversation to delivery.</h2>
+      <p>Whatever the service line, engagements move through the same disciplined process so nothing is handled informally.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step"><span class="num">01</span><h4>Discovery call</h4><p>We learn your operation, timelines and constraints before proposing anything.</p></div>
+      <div class="process-step"><span class="num">02</span><h4>Scoped proposal</h4><p>A written scope, timeline and cost — no open-ended retainers by default.</p></div>
+      <div class="process-step"><span class="num">03</span><h4>Delivery</h4><p>A named consultant runs the engagement with regular check-ins.</p></div>
+      <div class="process-step"><span class="num">04</span><h4>Handover &amp; support</h4><p>Documentation, training or transition plans so your team can carry it forward.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GLOBAL REACH ================= -->
+<section class="reach" id="reach">
+  <div class="wrap reach-grid">
+    <div>
+      <span class="eyebrow" style="color:#a4801f;">GLOBAL REACH</span>
+      <h2 style="margin-top:8px;">Built for organizations operating across more than one market.</h2>
+      <p style="margin-top:14px; color:var(--ink-soft);">Because our service lines span travel, logistics, finance and technology, we're set up to support clients wherever their operations take them — coordinating documentation, vendors and timelines across borders.</p>
+      <div class="reach-list">
+        <div><strong>7</strong>service lines under one consultancy</div>
+        <div><strong>4</strong>step delivery process on every engagement</div>
+        <div><strong>1</strong>named consultant per client</div>
+        <div><strong>24/7</strong>WhatsApp line for urgent logistics queries</div>
+      </div>
+    </div>
+    <div>
+      <svg viewBox="0 0 420 340" width="100%">
+        <rect x="0" y="0" width="420" height="340" fill="none"/>
+        <g fill="none" stroke="#0B1C30" stroke-width="1" opacity="0.5">
+          <path d="M40 250 L120 180 L200 220 L260 140 L340 190 L390 120"/>
+        </g>
+        <g fill="#D8A72E">
+          <circle cx="40" cy="250" r="5"/>
+          <circle cx="120" cy="180" r="5"/>
+          <circle cx="200" cy="220" r="5"/>
+          <circle cx="260" cy="140" r="5"/>
+          <circle cx="340" cy="190" r="5"/>
+          <circle cx="390" cy="120" r="5"/>
+        </g>
+        <g fill="#0B1C30" font-family="Inter" font-size="11">
+          <text x="30" y="270">Lagos</text>
+          <text x="105" y="200">Accra</text>
+          <text x="185" y="240">Dubai</text>
+          <text x="245" y="160">London</text>
+          <text x="325" y="210">Nairobi</text>
+          <text x="365" y="140">Shanghai</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">GET IN TOUCH</span>
+      <h2 style="color:var(--paper); margin-top:8px;">Tell us what you're moving, planning or building — we'll tell you who picks it up.</h2>
+      <p style="color:rgba(246,244,238,0.72); margin-top:14px;">Reach us directly, or send details through the form and a consultant will follow up.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+          <div><strong>Phone &amp; WhatsApp</strong><span>+234 701 273 1130</span></div>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+          <div><strong>Email</strong><span>soexoa33@gmail.com</span></div>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/></svg>
+          <div><strong>Website</strong><span>www.a101consultant.com</span></div>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>
+          <div><strong>Social</strong><span>@A101Global</span></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.confirm').style.display='block';">
+      <h3>Request a consultation</h3>
+      <p class="small">Fill this in and we'll reply by email or WhatsApp — whichever you prefer.</p>
+      <div class="field"><label for="name">Full name</label><input id="name" type="text" required></div>
+      <div class="field"><label for="contact-method">Preferred contact</label><input id="contact-method" type="text" placeholder="Email address or WhatsApp number" required></div>
+      <div class="field">
+        <label for="service">Service of interest</label>
+        <select id="service">
+          <option>AI Agent Teaching Classes</option>
+          <option>Travel Consultant</option>
+          <option>Logistics &amp; Cargo Delivery</option>
+          <option>Fleet Management</option>
+          <option>Vehicle Hire</option>
+          <option>Project Management</option>
+          <option>Business Development &amp; International Finance Consultancy</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field"><label for="msg">Details</label><textarea id="msg" placeholder="Tell us briefly what you need"></textarea></div>
+      <button class="btn btn-outline-dark" type="submit" style="width:100%; justify-content:center;">Send request</button>
+      <p class="confirm" style="display:none; margin-top:14px; font-size:0.88rem; color:#2a6b3f;">Thanks — this form is a template for now. For an immediate reply, please use the WhatsApp or phone number listed.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="logo" style="color:var(--paper);">
+        <span class="logo-mark">A1</span>
+        <span>A101 Business Consultant<small>GLOBAL ADVISORY &amp; OPERATIONS</small></span>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h5>Services</h5>
+          <a href="#services">AI Agent Teaching</a>
+          <a href="#services">Travel Consultant</a>
+          <a href="#services">Logistics &amp; Cargo</a>
+          <a href="#services">Fleet Management</a>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <a href="#about">About</a>
+          <a href="#process">How we work</a>
+          <a href="#reach">Global reach</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h5>Reach us</h5>
+          <a href="tel:+2347012731130">+234 701 273 1130</a>
+          <a href="mailto:soexoa33@gmail.com">soexoa33@gmail.com</a>
+          <a href="https://wa.me/2347012731130" target="_blank" rel="noopener">WhatsApp chat</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> A101 Business Consultant. All rights reserved.</span>
+      <span>Elevate your business · Drive innovation · Reach global markets</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2347012731130?text=Hello%20A101%20Business%20Consultant%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.04 3C9.37 3 3.98 8.4 3.98 15.06c0 2.24.61 4.42 1.77 6.33L3 29l7.79-2.7a12.1 12.1 0 0 0 5.25 1.2h.01c6.67 0 12.06-5.4 12.06-12.06C28.11 8.78 22.71 3 16.04 3zm0 21.9h-.01a10.1 10.1 0 0 1-5.15-1.41l-.37-.22-4.62 1.6 1.54-4.5-.24-.38a10.06 10.06 0 0 1-1.55-5.36c0-5.58 4.55-10.13 10.14-10.13 5.58 0 10.13 4.55 10.13 10.13 0 5.59-4.55 10.27-10.13 10.27zm5.55-7.57c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.65-.94-2.26-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
